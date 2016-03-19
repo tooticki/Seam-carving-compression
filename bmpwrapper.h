@@ -1,7 +1,6 @@
 #include "EasyBMP.h"
 #include <stdlib.h>
 
-
 class BMPWrapper {
     public:
         BMPWrapper(BMP* bmp, bool d);
