@@ -29,7 +29,8 @@ BMPWrapper::BMPWrapper(BMP* bmp, bool d) {
 }
 
 BMPWrapper::~BMPWrapper(){
-    for(int i=0; i<start_w; i++) delete energy[i];
+    for(int i=0; i<start_w; i++) delete[] energy[i];
+    delete bmp;
     delete[] energy;
 }
 
@@ -70,7 +71,7 @@ void BMPWrapper::simpleResize(int direction) {
         chain[i] = ind_of_min_neigh(energyMap[i], w, chain[i+1]);
     }
 
-    for(int i=0; i<h; i++) delete energyMap[i];
+    for(int i=0; i<h; i++) delete[] energyMap[i];
     delete[] energyMap;
     deleteChain(chain);
 }
@@ -84,7 +85,7 @@ void BMPWrapper::setPixel(int i, int j, RGBApixel p){
     else  bmp->SetPixel(j, i, p);
 }
 
-int BMPWrapper::setEnergy(int i, int j, int val){
+void BMPWrapper::setEnergy(int i, int j, int val){
     if(d) energy[i][j] = val;
     else energy[j][i] = val;
 }
@@ -130,8 +131,10 @@ void BMPWrapper::deleteChain(int* chain){
              else ni->SetPixel(i, j-1, pixel);
         }
     }
+    delete bmp;
     bmp = ni;
     recomputeEnergy(chain);
+    delete[] chain;
 }
 
 void BMPWrapper::computeEnergy(){

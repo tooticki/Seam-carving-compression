@@ -20,7 +20,7 @@ class BMPWrapper {
         int** energy;
 
         void setPixel(int i, int j, RGBApixel p);
-        int setEnergy(int i, int j, int val);
+        void setEnergy(int i, int j, int val);
         void setSize(int i, int j);
         void setBitDepth(int a);
 

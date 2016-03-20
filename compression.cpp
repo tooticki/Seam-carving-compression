@@ -35,5 +35,6 @@ int main(int argc, char* argv[]){
     }
     //output
     input->getBMP()->WriteToFile(argv[4]);
+    delete input;
     return 0;
 }
