@@ -8,5 +8,5 @@
     $ make clean all
     
 ## Resources:
-* Algorithm description: https://habrahabr.ru/post/183638/
+* Algorithm description: https://en.wikipedia.org/wiki/Seam_carving, https://habrahabr.ru/post/183638/
 * EasyBMP library website: http://easybmp.sourceforge.net/
